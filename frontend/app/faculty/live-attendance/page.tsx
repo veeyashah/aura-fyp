@@ -203,7 +203,7 @@ export default function LiveAttendance() {
       if (studentsForAPI.length === 0) {
         const embeddingSizes = students
           .filter(s => s.faceEmbeddings)
-          .map(s => `${s.name}: ${s.faceEmbeddings.length}d`)
+          .map(s => `${s.name}: ${s.faceEmbeddings.length ?? 0}d`)
           .join(', ') || 'No embeddings found'
         throw new Error(`No valid embeddings found. Found: ${embeddingSizes} (valid: ${validSizes.join('/')}d)`)
       }
